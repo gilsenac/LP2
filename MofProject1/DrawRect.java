@@ -3,27 +3,22 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class DrawRect extends JPanel {
-    
     int x, y, w, h;
-    
     public static void main ( String[] args ) {
         JFrame f = new JFrame ( "Draw Box Mouse 2" );
         f.setDefaultCloseOperation ( JFrame.EXIT_ON_CLOSE );
         f.setContentPane ( new DrawRect() );
         f.setSize ( 300, 300 ); f.setVisible (true); 
     }
-    
     DrawRect () {
         int x = y = w = h;
         MyMouseListener listener = new MyMouseListener();
         addMouseListener ( listener );
         addMouseMotionListener ( listener );
     }
-
     public void setStartPoint ( int x, int y ) {
         this.x = x; this.y =y;
     }
-
     public void setEndPoint ( int x, int y ) {
         w = Math.abs ( this.x - x ); 
         h = Math.abs ( this.y - y );
