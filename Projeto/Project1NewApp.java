@@ -43,7 +43,13 @@ class IfaceFrame extends JFrame {
                     n = evt.getKeyChar();
                     int num = (int)n;
                     num -= 48;
-                //    repaint();
+             
+                    if (focus != null) {
+                        if (n == 'd') {
+                           figs.remove(focus);
+                           repaint();
+                        }
+                    }
                 }
             }
         );
@@ -72,7 +78,7 @@ class IfaceFrame extends JFrame {
                     }
 
                     if (focus != null) {
-                     
+                        if (n == 'd') figs.remove(focus);                      
                         figs.remove(focus);
                         figs.add(focus); 
                     }
